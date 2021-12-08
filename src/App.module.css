@@ -1,0 +1,67 @@
+/* reset */
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* // */
+
+.btnList {
+  display: flex;
+}
+.btnListItem:not(:last-child) {
+  margin-right: 15px;
+}
+
+.btn {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: darkslategray;
+  background-color: orange;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  width: 150px;
+  height: 70px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn:hover,
+.btn:focus {
+  color: white;
+  background-color: darkorange;
+}

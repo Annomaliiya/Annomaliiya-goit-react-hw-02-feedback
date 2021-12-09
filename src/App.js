@@ -1,5 +1,10 @@
 import { Component } from 'react';
+
+import Section from './components/Section';
+import Statistics from './components/Statistics';
+import FeedbackOptions from './components/FeedbackOptions';
 import styles from './App.module.css';
+
 
 class App extends Component {
   state = {
@@ -43,24 +48,16 @@ class App extends Component {
     const total = this.countTotalFeedback();
     const positiveFeedback = this.countPositiveFeedbackPercentage();
     return (
-
       <>
-        <section className={styles.feedback}>
-          <h1 className={styles.title}>Please leave feedback</h1>
-          <ul className={styles.btnList}>
-            <li className={styles.btnListItem}><button className={styles.btn} type="button" onClick={this.goodFeedback}>Good</button></li>
-            <li className={styles.btnListItem}><button className={styles.btn} type="button" onClick={this.neutralFeedback}>Neutral</button></li>
-            <li className={styles.btnListItem}><button className={styles.btn} type="button" onClick={this.badFeedback}>Bad</button></li>
-          </ul>
-          <h2 className={styles.subTitle}>Statistics</h2>
-          <ul className={styles.statisticsList}>
-            <li className={styles.item}>Good:{this.state.good}</li>
-            <li className={styles.item}>Neutral:{this.state.neutral}</li>
-            <li className={styles.item}>Bad:{this.state.bad}</li>
-            <li className={styles.item}>Total:{total}</li>
-            <li className={styles.item}>Positive feedback:{positiveFeedback}%</li>
-          </ul>
-        </section>
+        <Section className={styles.section} title="Please leave feedback" >
+          <FeedbackOptions goodFeedback={this.goodFeedback}
+            neutralFeedback={this.neutralFeedback}
+            badFeedback={this.badFeedback}
+          />
+        </Section>
+        <Section className={styles.section} title="Statistics">
+          <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={total} positiveFeedback={positiveFeedback} />
+        </Section>
       </>
     )
   };
